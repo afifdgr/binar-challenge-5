@@ -29,7 +29,7 @@ module.exports = {
           password: hashedPassword,
           profile: {
             create: {
-              identity_number: identity_number,
+              identity_number: parseInt(identity_number),
               identity_type: identity_type,
               address: address,
             },

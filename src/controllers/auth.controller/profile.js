@@ -12,14 +12,22 @@ module.exports = {
         },
         include: {
           profile: true,
-          bank_accounts: true,
         },
       });
-      user.password = undefined;
+
+      const data = {
+        user_id: user.id,
+        name: user.name,
+        email: user.email,
+        profile: {
+          identity_type: user.profile.identity_type,
+          identitynumber: parseInt(user.profile.identity_number),
+        },
+      };
 
       return res
         .status(200)
-        .json(ApiResponse.success("Fetch Data Profile Successfully", user));
+        .json(ApiResponse.success("Fetch Data Profile Successfully", data));
     } catch (error) {
       console.log(error);
       return res.status(500).json(ApiResponse.error("Internal Server Error"));

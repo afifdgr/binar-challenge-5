@@ -13,7 +13,7 @@ datasource db {
 model profiles {
   id              Int    @id @default(autoincrement())
   identity_type   String
-  identity_number String
+  identity_number Int
   address         String
   user_id         Int    @unique
   user            users  @relation(fields: [user_id], references: [id], onDelete: Cascade)
@@ -22,7 +22,7 @@ model profiles {
 model users {
   id            Int             @id @default(autoincrement())
   name          String
-  email         String
+  email         String          @unique
   password      String
   profile       profiles?       
   bank_accounts bank_accounts[]
@@ -44,7 +44,6 @@ model bank_account_transactions {
   source_account_id      Int
   destination_account_id Int
   amount                 BigInt
-  created_at             DateTime       @default(now())
   source_account         bank_accounts? @relation("source_account", fields: [source_account_id], references: [id], onDelete: Cascade)
   destination_account    bank_accounts? @relation("destination_account", fields: [destination_account_id], references: [id], onDelete: Cascade)
 }

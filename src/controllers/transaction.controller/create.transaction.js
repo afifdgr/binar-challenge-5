@@ -29,7 +29,7 @@ module.exports = {
 
       if (existingSourceAccount.balance < amount)
         return res
-          .status(403)
+          .status(409)
           .json(ApiResponse.error("Source Account balance is insufficient"));
 
       const existingDestinationAccount = await prisma.bank_accounts.findUnique({

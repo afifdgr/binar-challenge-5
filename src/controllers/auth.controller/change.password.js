@@ -35,7 +35,7 @@ module.exports = {
           .json(ApiResponse.success("Change Password Successfully"));
       } else {
         return res
-          .status(403)
+          .status(409)
           .json(ApiResponse.error("Your old password is invalid"));
       }
     } catch (error) {

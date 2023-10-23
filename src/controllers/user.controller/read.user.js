@@ -19,7 +19,7 @@ module.exports = {
         email: user.email,
         profiles: {
           identity_type: user.profile.identity_type,
-          identity_number: user.profile.identity_number,
+          identity_number: parseInt(user.profile.identity_number),
           address: user.profile.address,
         },
         bank_accounts: user.bank_accounts.map((account) => ({
@@ -61,7 +61,7 @@ module.exports = {
         password: user.password,
         profiles: {
           identity_type: user.profile.identity_type,
-          identity_number: user.profile.identity_number,
+          identity_number: parseInt(user.profile.identity_number),
           address: user.profile.address,
         },
         bank_accounts: user.bank_accounts.map((account) => ({

@@ -8,12 +8,12 @@ const verifyToken = async (req, res, next) => {
   const token = authHeader && authHeader.split(" ")[1];
 
   if (!token)
-    return res.status(403).json(ApiResponse.error("please provide a token"));
+    return res.status(401).json(ApiResponse.error("please provide a token"));
 
   try {
     const jwtPayload = jwt.verify(token, process.env.TOKEN_KEY);
     if (!jwtPayload) {
-      return res.status(403).json(ApiResponse.error("unauntheticated"));
+      return res.status(401).json(ApiResponse.error("unauntheticated"));
     }
 
     const user = await prisma.users.findFirst({

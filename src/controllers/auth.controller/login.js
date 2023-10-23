@@ -24,7 +24,7 @@ module.exports = {
       );
 
       if (!verifyPassword)
-        return res.status(400).json(ApiResponse.error("Wrong Password"));
+        return res.status(409).json(ApiResponse.error("Wrong Password"));
 
       const tokenData = user.id;
       const token = await jwtToken.create(tokenData);

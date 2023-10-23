@@ -3,7 +3,7 @@ const express = require("express"),
   controller = require("../controllers/auth.controller/index"),
   verifyToken = require("../middlewares/verify.token"),
   validator = require("../middlewares/validation"),
-  schema = require("../validation/authSchema");
+  schema = require("../validation/auth.schema");
 
 // AUTH Route
 router.post("/register", validator(schema.register), controller.register);

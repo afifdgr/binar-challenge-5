@@ -11,6 +11,7 @@ const validate = (validations) => {
       const error_messages = validation_errors
         .array()
         .map((error) => error.msg);
+
       return res.status(400).json(ApiResponse.error(error_messages.join(", ")));
     }
 
