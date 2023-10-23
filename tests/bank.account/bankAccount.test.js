@@ -11,7 +11,7 @@ describe("Bank-Accounts-Route", () => {
       user_id: "100",
     };
     const res = await request(app).post("/api/v1/accounts").send(req);
-    expect(res.statusCode).toEqual(404);
+    expect(res.statusCode).toBe(404);
   });
 
   it("Should return status 400 because minimum balance is 500000 ", async () => {
@@ -22,7 +22,7 @@ describe("Bank-Accounts-Route", () => {
       user_id: "1",
     };
     const res = await request(app).post("/api/v1/accounts").send(req);
-    expect(res.statusCode).toEqual(400);
+    expect(res.statusCode).toBe(400);
   });
 
   it("Should return status 201 and Bank Account by user_id created ", async () => {
@@ -33,24 +33,24 @@ describe("Bank-Accounts-Route", () => {
       user_id: "1",
     };
     const res = await request(app).post("/api/v1/accounts").send(req);
-    expect(res.statusCode).toEqual(201);
+    expect(res.statusCode).toBe(201);
   });
 
   /* Bank Account Get Method */
   it("Should return status 200 and Get Data All Bank Account ", async () => {
     const res = await request(app).get("/api/v1/accounts");
-    expect(res.statusCode).toEqual(200);
+    expect(res.statusCode).toBe(200);
   });
 
   it("Should return status 404 because Data Bank Account By Id not found", async () => {
     const accountId = 100;
     const res = await request(app).get(`/api/v1/accounts/${accountId}`);
-    expect(res.statusCode).toEqual(404);
+    expect(res.statusCode).toBe(404);
   });
 
   it("Should return status 200 and Get Data Bank Account By Id", async () => {
     const accountId = 1;
     const res = await request(app).get(`/api/v1/accounts/${accountId}`);
-    expect(res.statusCode).toEqual(200);
+    expect(res.statusCode).toBe(200);
   });
 });

@@ -6,7 +6,7 @@ describe("Prisma-Database", () => {
     try {
       await prisma.$connect();
       const result = await prisma.$queryRaw`SELECT 1 as result`;
-      expect(result[0].result).toEqual(1);
+      expect(result[0].result).toBe(1);
     } catch (error) {
       throw error;
     }

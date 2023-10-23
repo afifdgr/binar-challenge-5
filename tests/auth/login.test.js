@@ -8,7 +8,7 @@ describe("Login-Route", () => {
       password: "12345678",
     };
     const res = await request(app).post("/api/v1/auth/login").send(req);
-    expect(res.statusCode).toEqual(400);
+    expect(res.statusCode).toBe(400);
   });
 
   it("Should return error status 400 because password minimum is 8 character", async () => {
@@ -17,7 +17,7 @@ describe("Login-Route", () => {
       password: "12345678",
     };
     const res = await request(app).post("/api/v1/auth/login").send(req);
-    expect(res.statusCode).toEqual(400);
+    expect(res.statusCode).toBe(400);
   });
 
   it("Should return error status 409 because wrong password", async () => {
@@ -26,7 +26,7 @@ describe("Login-Route", () => {
       password: "123456789",
     };
     const res = await request(app).post("/api/v1/auth/login").send(req);
-    expect(res.statusCode).toEqual(409);
+    expect(res.statusCode).toBe(409);
   });
 
   it("Should return success status 200 and Login Successfully", async () => {
@@ -35,6 +35,6 @@ describe("Login-Route", () => {
       password: "12345678",
     };
     const res = await request(app).post("/api/v1/auth/login").send(req);
-    expect(res.statusCode).toEqual(200);
+    expect(res.statusCode).toBe(200);
   });
 });

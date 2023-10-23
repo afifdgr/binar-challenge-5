@@ -12,7 +12,7 @@ describe("Register-Route", () => {
       address: "adresss",
     };
     const res = await request(app).post("/api/v1/auth/register").send(user);
-    expect(res.statusCode).toEqual(400);
+    expect(res.statusCode).toBe(400);
   });
 
   it("Should return error status 400 because password minimum is 8 character", async () => {
@@ -25,7 +25,7 @@ describe("Register-Route", () => {
       address: "adresss",
     };
     const res = await request(app).post("/api/v1/auth/register").send(user);
-    expect(res.statusCode).toEqual(400);
+    expect(res.statusCode).toBe(400);
   });
 
   it("Should return error status 409 because email already registered", async () => {
@@ -38,7 +38,7 @@ describe("Register-Route", () => {
       address: "adresss",
     };
     const res = await request(app).post("/api/v1/auth/register").send(user);
-    expect(res.statusCode).toEqual(409);
+    expect(res.statusCode).toBe(409);
   });
 
   it("Should return success status 201 and successfully create a user", async () => {
@@ -51,6 +51,6 @@ describe("Register-Route", () => {
       address: "test_address",
     };
     const res = await request(app).post("/api/v1/auth/register").send(user);
-    expect(res.statusCode).toEqual(201);
+    expect(res.statusCode).toBe(201);
   });
 });

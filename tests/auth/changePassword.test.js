@@ -19,7 +19,7 @@ describe("Change-Password-Route", () => {
     const res = await request(app)
       .put("/api/v1/auth/change-password")
       .send(req);
-    expect(res.statusCode).toEqual(401);
+    expect(res.statusCode).toBe(401);
   });
 
   it("Should return error status 400 because new_password is required", async () => {
@@ -30,7 +30,7 @@ describe("Change-Password-Route", () => {
       .put("/api/v1/auth/change-password")
       .send(req)
       .set("Authorization", `Bearer ${authToken}`);
-    expect(res.statusCode).toEqual(400);
+    expect(res.statusCode).toBe(400);
   });
 
   it("Should return error status 400 because new_password is required", async () => {
@@ -42,7 +42,7 @@ describe("Change-Password-Route", () => {
       .put("/api/v1/auth/change-password")
       .send(req)
       .set("Authorization", `Bearer ${authToken}`);
-    expect(res.statusCode).toEqual(400);
+    expect(res.statusCode).toBe(400);
   });
 
   it("Should return error status 400 because new_password minimum is 8 character", async () => {
@@ -54,7 +54,7 @@ describe("Change-Password-Route", () => {
       .put("/api/v1/auth/change-password")
       .send(req)
       .set("Authorization", `Bearer ${authToken}`);
-    expect(res.statusCode).toEqual(400);
+    expect(res.statusCode).toBe(400);
   });
 
   it("Should return error status 409 because old_password is incorrect", async () => {
@@ -66,7 +66,7 @@ describe("Change-Password-Route", () => {
       .put("/api/v1/auth/change-password")
       .send(req)
       .set("Authorization", `Bearer ${authToken}`);
-    expect(res.statusCode).toEqual(409);
+    expect(res.statusCode).toBe(409);
   });
 
   it("Should return success status 201 and password successfully updated", async () => {
@@ -78,6 +78,6 @@ describe("Change-Password-Route", () => {
       .put("/api/v1/auth/change-password")
       .send(req)
       .set("Authorization", `Bearer ${authToken}`);
-    expect(res.statusCode).toEqual(201);
+    expect(res.statusCode).toBe(201);
   });
 });

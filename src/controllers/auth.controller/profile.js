@@ -21,7 +21,7 @@ module.exports = {
         email: user.email,
         profile: {
           identity_type: user.profile.identity_type,
-          identitynumber: parseInt(user.profile.identity_number),
+          identity_number: user.profile.identity_number,
         },
       };
 

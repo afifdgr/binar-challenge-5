@@ -4,18 +4,18 @@ const app = require("../../app"),
 describe("User-Route", () => {
   it("Should return status 200 and Get Data All Users", async () => {
     const res = await request(app).get("/api/v1/users");
-    expect(res.statusCode).toEqual(200);
+    expect(res.statusCode).toBe(200);
   });
 
   it("Should return status 200 and Get User by ID", async () => {
     const userId = 1;
     const res = await request(app).get(`/api/v1/users/${userId}`);
-    expect(res.statusCode).toEqual(200);
+    expect(res.statusCode).toBe(200);
   });
 
   it("Should return status 404 and Get User by ID", async () => {
     const userId = 100;
     const res = await request(app).get(`/api/v1/users/${userId}`);
-    expect(res.statusCode).toEqual(404);
+    expect(res.statusCode).toBe(404);
   });
 });
