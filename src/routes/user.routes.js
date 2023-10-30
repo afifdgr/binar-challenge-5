@@ -10,4 +10,8 @@ router.get("/users/:id", controller.getUserById);
 router.put("/users/:id", controller.updateUser);
 router.delete("/users/:id", controller.deleteUser);
 
+router.get("/", (req, res) => {
+    res.status(200).json({message: "Successfully"})
+})
+
 module.exports = router;
